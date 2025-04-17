@@ -1,12 +1,8 @@
 def get_letter_count(book):
     count_dict = {}
-    words = list(book)
-    for char in words:
+    for char in book:
         low = char.lower()
-        if count_dict.get(low) == None:
-            count_dict.update({low: 1})
-        else:
-            count_dict[low] += 1
+        count_dict[low] = count_dict.get(low,0) + 1
     return count_dict           
 def main():
     with open("books/frankenstein.txt") as file:
