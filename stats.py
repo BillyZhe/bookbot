@@ -7,5 +7,13 @@ def get_letter_count(book):
     for char in book:
         low = char.lower()
         count_dict[low] = count_dict.get(low,0) + 1
-    return count_dict   
+    return count_dict 
+
+def get_order(diction):
+    alpha = {}
+    for key, value in diction.items():
+        if str(key).isalpha():
+            alpha[key] = value
+    order = dict(sorted(alpha.items(), key = lambda x: x[1], reverse=True))
+    return order  
 

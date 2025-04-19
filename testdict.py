@@ -1,9 +1,17 @@
 def main():
-    cars = [
-        {"Car": 5 },
-        {"truck": 7},
-        {"suv": 15}
-    ]
-    cars.sort(reverse=True, key= sort_on)
-    print(cars)
+    cars = {
+        "i": 5 ,
+        "t": 7,
+        "!": 15
+    }
+    new_cars = {}
+    not_cars = {}
+    for key, value in cars.items():
+        if str(key).isalpha():
+            new_cars[key] = value
+        else:
+            not_cars[key] = value
+    for key, value in new_cars.items():
+
+        print(dict(sorted(new_cars.items(), key = lambda x: x[1], reverse=True)))
 main()

@@ -4,8 +4,9 @@ def get_letter_count(book):
         low = char.lower()
         count_dict[low] = count_dict.get(low,0) + 1
     return count_dict 
-def get_order(dict):
-    return dict["num"]
+def get_order(diction):
+    order = dict(sorted(diction.items(), key = lambda x: x[1], reverse=True))
+    return order
 def main():
     with open("books/frankenstein.txt") as file:
         file_contents = file.read()
