@@ -15,5 +15,6 @@ def get_order(diction):
         if str(key).isalpha():
             alpha[key] = value
     order = dict(sorted(alpha.items(), key = lambda x: x[1], reverse=True))
+    
     return order  
 
