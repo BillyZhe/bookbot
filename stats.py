@@ -10,11 +10,12 @@ def get_letter_count(book):
     return count_dict 
 
 def get_order(diction):
-    alpha = {}
+    final = []
     for key, value in diction.items():
         if str(key).isalpha():
-            alpha[key] = value
-    order = dict(sorted(alpha.items(), key = lambda x: x[1], reverse=True))
-    
-    return order  
+            char_dict = {"character": key, "count": value}
+            final.append(char_dict)
+        
+        final.sort(key = lambda item: item["count"], reverse=True)
+    return final
 
