@@ -1,11 +1,14 @@
+import sys
 from stats import get_word_count
 from stats import get_letter_count
 from stats import get_order
 def main():
-    with open("books/frankenstein.txt") as file:
-        file_contents = file.read()
-        word_count = get_word_count(file_contents)
-        letter_count = get_letter_count(file_contents)
+    if len(sys.argv) > 1:
+        file_contents = sys.argv[1]
+        with open(file_contents, "r") as file:
+            book = file.read()
+        word_count = get_word_count(book)
+        letter_count = get_letter_count(book)
         ordered = get_order(letter_count) 
         print(f"============ BOOKBOT ============")
         print(f"Analyzing book found at books/frankenstein.txt...")
@@ -17,5 +20,7 @@ def main():
             count = letter_count["count"]
             print(f"{character}: {count}")
         print(f"============= END ===============")
+    else:
+        print("Usage: python3 main.py <path_to_book>")
 main()
         
